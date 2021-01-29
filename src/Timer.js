@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './css/timer.css';
 
 class Timer extends Component {
     constructor() {
@@ -6,49 +7,67 @@ class Timer extends Component {
         this.state = {
             minutes: 0,
             seconds: 0,
+            running: false
         }
     }
 
     incrementSeconds = () => {
-        this.setState({seconds: this.state.seconds + 1})
+        if (this.state.seconds < 60) {
+            this.setState({seconds: this.state.seconds + 1})
+        }
     }
 
     decrementSeconds = () => {
-        this.setState({seconds: this.state.seconds - 1})
+        if (this.state.seconds > 0) {
+            this.setState({seconds: this.state.seconds - 1})
+        }
+
     }
 
     incrementMinutes = () => {
-        this.setState({minutes: this.state.minutes + 1})
+        if (this.state.minutes < 60) {
+            this.setState({minutes: this.state.minutes + 1})
+        }
     }
 
     decrementMinutes = () => {
-        this.setState({minutes: this.state.minutes - 1})
+        if (this.state.minutes > 0) {
+            this.setState({minutes: this.state.minutes - 1})
+        }
     }
 
     startTimer = () => {
         let interval = setInterval(() => {
             if (this.state.minutes >= 0 && this.state.seconds > 0) {
+                this.setState({running: true})
                 this.setState({seconds: this.state.seconds - 1})
             } else if (this.state.minutes > 0 && this.state.seconds === 0) {
-                this.setState({minutes: this.state.minutes - 1, seconds: 60})
+                this.setState({running: true})
+                this.setState({minutes: this.state.minutes - 1, seconds: 59})
             } else if (this.state.minutes === 0 && this.state.seconds > 0) {
-                this.setState({minutes: 0, seconds: 60})
+                this.setState({running: true})
+                this.setState({minutes: 0, seconds: 50})
             } else {
                 clearInterval(interval)
+                this.setState({running:false})
             }
-
         }, 1000)
-
     }
     render() {
         return (
-            <div>
-                <h1>{this.state.minutes}:{this.state.seconds}</h1>
-                {this.state.minutes < 60 && (<button onClick={this.incrementMinutes}>increment</button>)}
-                {this.state.minutes > 0 && (<button onClick={this.decrementMinutes}>decrement</button>)}
-                {this.state.seconds < 60 && (<button onClick={this.incrementSeconds}>increment</button>)}
-                {this.state.seconds > 0 && (<button onClick={this.decrementSeconds}>decrement</button>)}
-                <button onClick={this.startTimer}>Start Timer</button>
+            <div className='timer-body'>
+                {this.state.running === true ?
+                    <h1>{this.state.minutes}:{this.state.seconds}</h1>
+                    :
+                    <div>
+                        <button className='minInc'onClick={this.incrementMinutes}>^</button>
+                        <button className='secInc'onClick={this.incrementSeconds}>^</button>
+                        <h1>{this.state.minutes}:{this.state.seconds}</h1>
+                        <button className='minDec'onClick={this.decrementMinutes}>v</button>
+                        <button className='secDec'onClick={this.decrementSeconds}>v</button>
+                        <button onClick={this.startTimer}>Start Timer</button>
+                    </div>
+                }
             </div>
         )
     }
