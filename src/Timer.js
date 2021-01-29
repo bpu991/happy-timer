@@ -39,14 +39,11 @@ class Timer extends Component {
     startTimer = () => {
         let interval = setInterval(() => {
             if (this.state.minutes >= 0 && this.state.seconds > 0) {
-                this.setState({running: true})
-                this.setState({seconds: this.state.seconds - 1})
+                this.setState({running: true, seconds: this.state.seconds - 1})
             } else if (this.state.minutes > 0 && this.state.seconds === 0) {
-                this.setState({running: true})
-                this.setState({minutes: this.state.minutes - 1, seconds: 59})
+                this.setState({running: true, minutes: this.state.minutes - 1, seconds: 59})
             } else if (this.state.minutes === 0 && this.state.seconds > 0) {
-                this.setState({running: true})
-                this.setState({minutes: 0, seconds: 50})
+                this.setState({running: true, minutes: 0, seconds: 50})
             } else {
                 clearInterval(interval)
                 this.setState({running:false})
