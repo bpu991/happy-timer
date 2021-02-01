@@ -63,34 +63,37 @@ class Timer extends Component {
     }
 
     startTimer = () => {
-        // let interval = setInterval(() => {
-        //     if (this.state.minutes >= 0 && this.state.seconds > 0) {
-        //         this.setState({running: true, seconds: this.state.seconds - 1})
-        //     } else if (this.state.minutes > 0 && this.state.seconds === 0) {
-        //         this.setState({running: true, minutes: this.state.minutes - 1, seconds: 59})
-        //     } else if (this.state.minutes === 0 && this.state.seconds > 0) {
-        //         this.setState({running: true, minutes: 0, seconds: 50})
-        //     } else {
-        //         clearInterval(interval)
-        //         this.setState({running:false})
-        //     }
-        // }, 1000)
         let interval = setInterval(() => {
-            if(this.state.minutes >= 0 && this.state.minutes2 >= 0 && this.state.seconds > 0 && this.state.seconds2 > 0) {
-                console.log('1')
+            if (this.state.minutes !== 0 && this.state.minutes2 !== 0 && this.state.seconds === 0 && this.state.seconds2 !== 0) {
                 this.setState({running: true, seconds2: this.state.seconds2 - 1})
-            } else if (this.state.minutes > 0 && this.state.minutes2 > 0 && this.state.seconds > 0 && this.state.seconds2 === 0) {
-                console.log('2')
-                this.setState({running: true, seconds: this.state.seconds - 1, seconds2: 9})
-            } else if (this.state.minutes > 0 && this.state.minutes2 > 0 && this.state.seconds === 0 && this.state.seconds2 > 0) {
-                console.log('3')
-                this.setState({running: true, seconds2: this.state.seconds2 - 1})
-            } else if (this.state.minutes > 0 && this.state.minutes2 === 0 && this.state.seconds === 0 && this.state.seconds2 === 0) {
-                console.log('4')
+            } else if (this.state.minutes !== 0 && this.state.minutes2 !== 0 && this.state.seconds === 0 && this.state.seconds2 === 0){
                 this.setState({running: true, minutes2: this.state.minutes2 - 1, seconds: 5, seconds2: 9})
-            } else if(this.state.minutes > 1 && this.state.minutes2 === 0, this.state.seconds === 0, this.state.seconds2 === 0) {
-                console.log('5')
-                this.setState({running: true, minutes: 0, minutes2: 9, seconds: 5, seconds2: 9})
+            } else if (this.state.minutes !== 0 && this.state.minutes2 !== 0 && this.state.seconds !== 0 && this.state.seconds2 !== 0){
+                this.setState({running: true, seconds2: this.state.seconds2 - 1})
+            } else if (this.state.minutes !== 0 && this.state.minutes2 !== 0 && this.state.seconds !== 0 && this.state.seconds2 === 0){
+                this.setState({running: true, seconds: this.state.seconds - 1, seconds2: 9})
+            } else if (this.state.minutes !== 0 && this.state.minutes2 === 0 && this.state.seconds !== 0 && this.state.seconds2 !== 0) {
+                this.setState({running: true, seconds2: this.state.seconds2 - 1})
+            } else if (this.state.minutes !== 0 && this.state.minutes2 === 0 && this.state.seconds !== 0 && this.state.seconds2 === 0) {
+                this.setState({running: true, seconds: this.state.seconds - 1, seconds2: 9})
+            } else if (this.state.minutes !== 0 && this.state.minutes2 === 0 && this.state.seconds === 0 && this.state.seconds2 !== 0) {
+                this.setState({running: true, seconds2: this.state.seconds2 - 1})
+            } else if (this.state.minutes !== 0 && this.state.minutes2 === 0 && this.state.seconds === 0 && this.state.seconds2 === 0) {
+                this.setState({running: true, minutes: this.state.minutes - 1, minutes2: 9, seconds: 5, seconds2: 9})
+            } else if (this.state.minutes === 0 && this.state.minutes2 !== 0 && this.state.seconds !== 0 && this.state.seconds2 !== 0) {
+                this.setState({running: true, seconds2: this.state.seconds2 - 1})
+            } else if (this.state.minutes === 0 && this.state.minutes2 !== 0 && this.state.seconds !== 0 && this.state.seconds2 === 0) {
+                this.setState({running: true, seconds: this.state.seconds - 1, seconds2: 9})
+            } else if (this.state.minutes === 0 && this.state.minutes2 !== 0 && this.state.seconds === 0 && this.state.seconds2 !== 0) {
+                this.setState({running: true, seconds2: this.state.seconds2 - 1})
+            } else if (this.state.minutes === 0 && this.state.minutes2 !== 0 && this.state.seconds === 0 && this.state.seconds2 === 0) {
+                this.setState({running: true, minutes2: this.state.minutes2 - 1, seconds: 5, seconds2: 9})
+            } else if (this.state.minutes === 0 && this.state.minutes2 === 0 && this.state.seconds !== 0 && this.state.seconds2 !== 0) {
+                this.setState({running: true, seconds2: this.state.seconds2 - 1})
+            } else if (this.state.minutes === 0 && this.state.minutes2 === 0 && this.state.seconds !== 0 && this.state.seconds2 === 0) {
+                this.setState({running: true, seconds: this.state.seconds - 1, seconds2: 9})
+            } else if (this.state.minutes === 0 && this.state.minutes2 === 0 && this.state.seconds === 0 && this.state.seconds2 !== 0) {
+                this.setState({running: true, seconds2: this.state.seconds2 - 1})
             }
         }, 1000)
     }
