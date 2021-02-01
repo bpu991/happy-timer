@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import CountDown from './CountDown';
 import './css/timer.css';
 
 class Timer extends Component {
@@ -9,7 +10,8 @@ class Timer extends Component {
             minutes2: 0,
             seconds: 0,
             seconds2: 0,
-            running: false
+            running: false,
+            bg1: false
         }
     }
 
@@ -94,28 +96,50 @@ class Timer extends Component {
                 this.setState({running: true, seconds: this.state.seconds - 1, seconds2: 9})
             } else if (this.state.minutes === 0 && this.state.minutes2 === 0 && this.state.seconds === 0 && this.state.seconds2 !== 0) {
                 this.setState({running: true, seconds2: this.state.seconds2 - 1})
+            } else {
+                clearInterval(interval)
+                this.setState({running:false})
             }
         }, 1000)
+
     }
     render() {
-        return (
-            <div className='timer-body'>
-                {this.state.running === true ?
+        if(this.state.running === false) {
+            return (
+                <div className='timer-body'>
+                    <button className='minInc'onClick={this.incrementMinutes}>^</button>
+                    <button className='minInc'onClick={this.incrementMinutes2}>^</button>
+                    <button className='secInc'onClick={this.incrementSeconds}>^</button>
+                    <button className='secInc'onClick={this.incrementSeconds2}>^</button>
                     <h1>{this.state.minutes}{this.state.minutes2}:{this.state.seconds}{this.state.seconds2}</h1>
-                    :
-                    <div>
-                        <button className='minInc'onClick={this.incrementMinutes}>^</button>
-                        <button className='minInc'onClick={this.incrementMinutes2}>^</button>
-                        <button className='secInc'onClick={this.incrementSeconds}>^</button>
-                        <button className='secInc'onClick={this.incrementSeconds2}>^</button>
-                        <h1>{this.state.minutes}{this.state.minutes2}:{this.state.seconds}{this.state.seconds2}</h1>
-                        <button className='minDec'onClick={this.decrementMinutes}>v</button>
-                        <button className='secDec'onClick={this.decrementSeconds}>v</button>
-                        <button onClick={this.startTimer}>Start Timer</button>
-                    </div>
-                }
-            </div>
-        )
+                    <button className='minDec'onClick={this.decrementMinutes}>v</button>
+                    <button className='secDec'onClick={this.decrementSeconds}>v</button>
+                    <button onClick={this.startTimer}>Start Timer</button>
+                </div>
+            )
+        } else {
+            return (
+                <CountDown minutes={this.state.minutes} minutes2={this.state.minutes2} seconds={this.state.seconds} seconds2={this.state.seconds2}/>
+            )
+        }
+        // return (
+        //     <div className='timer-body'>
+        //         {this.state.running === true ?
+        //             <h1>{this.state.minutes}{this.state.minutes2}:{this.state.seconds}{this.state.seconds2}</h1>
+        //             :
+        //             <div>
+        //                 <button className='minInc'onClick={this.incrementMinutes}>^</button>
+        //                 <button className='minInc'onClick={this.incrementMinutes2}>^</button>
+        //                 <button className='secInc'onClick={this.incrementSeconds}>^</button>
+        //                 <button className='secInc'onClick={this.incrementSeconds2}>^</button>
+        //                 <h1>{this.state.minutes}{this.state.minutes2}:{this.state.seconds}{this.state.seconds2}</h1>
+        //                 <button className='minDec'onClick={this.decrementMinutes}>v</button>
+        //                 <button className='secDec'onClick={this.decrementSeconds}>v</button>
+        //                 <button onClick={this.startTimer}>Start Timer</button>
+        //             </div>
+        //         }
+        //     </div>
+        // )
     }
 }
 
