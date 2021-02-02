@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import CountDown from './CountDown';
 import './css/timer.css';
+import ding from './ding.mp3';
+import {Howl, Howler} from 'howler';
 
+const audioClips = [
+    {sound: {ding}, label: 'ding'}
+]
 class Timer extends Component {
     constructor() {
         super();
@@ -15,6 +20,13 @@ class Timer extends Component {
         }
     }
 
+    soundPlay = (src) => {
+        const sound = new Howl({
+            src,
+            html5: true
+        });
+        sound.play()
+    }
     incrementSeconds = () => {
         if (this.state.seconds < 5) {
             this.setState({seconds: this.state.seconds + 1})
@@ -97,24 +109,47 @@ class Timer extends Component {
             } else if (this.state.minutes === 0 && this.state.minutes2 === 0 && this.state.seconds === 0 && this.state.seconds2 !== 0) {
                 this.setState({running: true, seconds2: this.state.seconds2 - 1})
             } else {
+                alert('All Done!')
                 clearInterval(interval)
                 this.setState({running:false})
             }
         }, 1000)
 
     }
+    renderButtonSound = () => {
+        return audioClips.map((soundObj, index) => {
+            return (
+                <button key={index} onClick={() => this.soundPlay(soundObj.sound)}>
+                    play
+                </button>
+            )
+        })
+    }
     render() {
         if(this.state.running === false) {
             return (
                 <div className='timer-body'>
-                    <button className='minInc'onClick={this.incrementMinutes}>^</button>
-                    <button className='minInc'onClick={this.incrementMinutes2}>^</button>
-                    <button className='secInc'onClick={this.incrementSeconds}>^</button>
-                    <button className='secInc'onClick={this.incrementSeconds2}>^</button>
-                    <h1>{this.state.minutes}{this.state.minutes2}:{this.state.seconds}{this.state.seconds2}</h1>
-                    <button className='minDec'onClick={this.decrementMinutes}>v</button>
-                    <button className='secDec'onClick={this.decrementSeconds}>v</button>
-                    <button onClick={this.startTimer}>Start Timer</button>
+                    <div className='timer-content'>
+                        <div className='inc-buttons'>
+                            <button className='myButton'onClick={this.incrementMinutes}>+</button>
+                            <button className='myButton'onClick={this.incrementMinutes2}>+</button>
+                            <button className='myButton'onClick={this.incrementSeconds}>+</button>
+                            <button className='myButton'onClick={this.incrementSeconds2}>+</button>
+                        </div>
+                        <div className='timer-settings'>
+                            <h1>{this.state.minutes} {this.state.minutes2} : {this.state.seconds} {this.state.seconds2}</h1>
+                        </div>
+                        <div className='dec-buttons'>
+                            <button className='myButton'onClick={this.decrementMinutes}>-</button>
+                            <button className='myButton'onClick={this.decrementMinutes2}>-</button>
+                            <button className='myButton'onClick={this.decrementSeconds}>-</button>
+                            <button className='myButton'onClick={this.decrementSeconds2}>-</button>
+                        </div>
+                        <div className='start-button'>
+                            <button onClick={this.startTimer}>Start Timer</button>
+                        </div>
+
+                    </div>
                 </div>
             )
         } else {
