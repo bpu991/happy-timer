@@ -146,7 +146,7 @@ class Timer extends Component {
                             <button className='myButton'onClick={this.decrementSeconds2}>-</button>
                         </div>
                         <div className='start-button'>
-                            <button onClick={this.startTimer}>Start Timer</button>
+                            <button className='button-start' onClick={this.startTimer}>Start Timer</button>
                         </div>
 
                     </div>
