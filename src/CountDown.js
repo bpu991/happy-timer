@@ -10,7 +10,16 @@ const CountDown = (props) => {
                     <video autoPlay muted loop src={gameboy1} type="video/mp4"></video>
                 </div>
                 <div className='content'>
-                    <h2>{props.minutes}{props.minutes2}:{props.seconds}{props.seconds2}</h2>
+                    <div className='content-1'>
+
+                    </div>
+                    <div className='content-2'>
+                        <h2>{props.minutes} {props.minutes2} : {props.seconds} {props.seconds2}</h2>
+                    </div>
+                    <div className='content-3'>
+
+                    </div>
+
                 </div>
             </section>
         </main>
