@@ -107,3 +107,14 @@ h1 {
 	text-decoration:none;
 	text-shadow:0px 1px 0px #3071bb;
 }
+
+.animation-selection {
+    grid-row: 3/4;
+    grid-column: 2/3;
+    display: flex;
+    justify-content: center;
+}
+
+.ani-1{
+    height:100px;
+}
