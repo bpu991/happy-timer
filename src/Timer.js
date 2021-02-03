@@ -3,6 +3,7 @@ import CountDown from './CountDown';
 import './css/timer.css';
 import ding from './ding.mp3';
 import {Howl, Howler} from 'howler';
+import logo from './logo.png';
 
 const audioClips = [
     {sound: {ding}, label: 'ding'}
@@ -129,6 +130,9 @@ class Timer extends Component {
         if(this.state.running === false) {
             return (
                 <div className='timer-body'>
+                    <div className='logo-title'>
+                        <img className='logo' src={logo}></img>
+                    </div>
                     <div className='timer-content'>
                         <div className='inc-buttons'>
                             <button className='myButton'onClick={this.incrementMinutes}>+</button>
