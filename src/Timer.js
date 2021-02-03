@@ -209,7 +209,7 @@ class Timer extends Component {
                     </div>
                     <div className='animation-selection'>
                         <div>
-                            <img onClick={this.selectAnimation1} style={borderStyle} className='ani-1' src={ani1}></img>
+                            <img onClick={this.selectAnimation1} className='ani-1' src={ani1}></img>
                         </div>
 
                     </div>

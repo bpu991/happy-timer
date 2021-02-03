@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './css/countdown.css';
-import gameboy1 from './walking-boy.mp4';
+import gameboy1 from './skeleton.mp4';
 const CountDown = (props) => {
     return(
         <main>
