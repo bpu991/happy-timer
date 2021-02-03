@@ -3,7 +3,7 @@ import CountDown from './CountDown';
 import './css/timer.css';
 import ding from './ding.mp3';
 import {Howl, Howler} from 'howler';
-import logo from './logo.png';
+import logo from './logo2.png';
 import ani1 from './bg.jpg';
 
 const borderStyle = {
