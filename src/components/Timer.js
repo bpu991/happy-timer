@@ -228,6 +228,9 @@ class Timer extends Component {
                     <div className='start-button'>
                         <button className='button-start' onClick={this.startTimer}>Start Timer</button>
                     </div>
+                    <div className='footer'>
+                            
+                    </div>
                     
                 </div>
             )

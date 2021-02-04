@@ -6,11 +6,11 @@
 .timer-body {
     width: 100%;
     color: #fff;
-    height: 100vh;
+    height: calc(100vh);
     overflow: auto;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
     background-color: #2B9D8F;
 
 
@@ -145,4 +145,14 @@ h1 {
     width: 170px;
     height: 150px;
     opacity: 0.75;
+}
+
+.footer {
+    height: 70px;
+    width: 100%;
+    grid-row: 4/5;
+    grid-column: 1/4;
+    display: flex;
+    background-color: #2B9D8F;
+    padding-top: 6%;
 }
