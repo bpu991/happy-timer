@@ -40,7 +40,9 @@
     .content {
         z-index: 2;
         position: fixed;
+        display:flex;
+        justify-content: center;
+        align-items: center;
         top: 40%;
-        left: 45%;
         font-size: 200%;
     }

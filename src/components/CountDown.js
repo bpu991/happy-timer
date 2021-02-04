@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import './css/countdown.css';
-import gameboy1 from './walking-boy.mp4';
+import '../css/countdown.css';
+import gameboy from '../media/gameboy.mp4';
 const CountDown = (props) => {
     return(
         <main>
             <section className='showcase'>
 
                 <div className='video-container'>
-                    <video autoPlay muted loop src={gameboy1} type="video/mp4"></video>
+                    <video autoPlay muted loop src={gameboy} type="video/mp4"></video>
                 </div>
                 <div className='content'>
                     <div className='content-1'>

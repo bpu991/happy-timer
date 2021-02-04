@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import './css/countdown.css';
-import skeleton from './skeleton.mp4';
+import '../css/countdown.css';
+import caveman from '../media/caveman.mp4';
 const CountDown2 = (props) => {
-    return(
+    return (
         <main>
             <section className='showcase'>
 
                 <div className='video-container'>
-                    <video autoPlay muted loop src={skeleton} type="video/mp4"></video>
+                    <video autoPlay muted loop src={caveman} type="video/mp4"></video>
                 </div>
                 <div className='content'>
                     <div className='content-1'>
@@ -23,7 +23,7 @@ const CountDown2 = (props) => {
                 </div>
             </section>
         </main>
-  );
+    );
 }
 
 export default CountDown2

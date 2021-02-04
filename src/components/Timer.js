@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import CountDown from './CountDown';
 import CountDown2 from './CountDown2';
-import './css/timer.css';
-import ding from './ding.mp3';
-import {Howl, Howler} from 'howler';
-import logo from './logo2.png';
-import ani1 from './gameboyScrn.png';
-import ani2 from './skeletonScrn.png';
+import CountDown3 from './CountDown3';
+import '../css/timer.css';
+import logo from '../media/logo2.png';
+import icon1 from '../media/gameboy-icon.png';
+import icon2 from '../media/skeleton-icon.png';
+import icon3 from '../media/caveman-icon.png';
 
 const borderStyle = {
     border: '4px dotted blue'
@@ -22,7 +22,8 @@ class Timer extends Component {
             seconds2: 0,
             running: false,
             bg1: false,
-            bg2: false
+            bg2: false,
+            bg3: false
         }
     }
 
@@ -93,6 +94,14 @@ class Timer extends Component {
 
     }
 
+    selectAnimation3 = () => {
+        if (this.state.bg3 === false) {
+            this.setState({ bg1: false, bg2: false, bg3: true });
+        } else {
+            this.setState({ bg3: false });
+        }
+
+    }
     startTimer = () => {
         let interval = setInterval(() => {
             if (this.state.minutes !== 0 && this.state.minutes2 !== 0 && this.state.seconds === 0 && this.state.seconds2 !== 0) {
@@ -172,20 +181,29 @@ class Timer extends Component {
                     <div className='animation-selection'>
                         {this.state.bg1 === true ?
                             <div>
-                                <img onClick={this.selectAnimation1} style={borderStyle} className='ani-1' src={ani1}></img>
+                                <img onClick={this.selectAnimation1} style={borderStyle} className='icon' src={icon1}></img>
                             </div>
                             :
                             <div>
-                                <img onClick={this.selectAnimation1} className='ani-1' src={ani1}></img>
+                                <img onClick={this.selectAnimation1} className='icon' src={icon1}></img>
                             </div>
                         }
                         {this.state.bg2 === true ?
                             <div>
-                                <img onClick={this.selectAnimation2} style={borderStyle} className='ani-1' src={ani2}></img>
+                                <img onClick={this.selectAnimation2} style={borderStyle} className='icon' src={icon2}></img>
                             </div>
                             :
                             <div>
-                                <img onClick={this.selectAnimation2} className='ani-1' src={ani2}></img>
+                                <img onClick={this.selectAnimation2} className='icon' src={icon2}></img>
+                            </div>
+                        }
+                        {this.state.bg3 === true ?
+                            <div>
+                                <img onClick={this.selectAnimation3} style={borderStyle} className='icon' src={icon3}></img>
+                            </div>
+                            :
+                            <div>
+                                <img onClick={this.selectAnimation3} className='icon' src={icon3}></img>
                             </div>
                         }
                     </div>
@@ -199,7 +217,11 @@ class Timer extends Component {
             return (
                 <CountDown2 minutes={this.state.minutes} minutes2={this.state.minutes2} seconds={this.state.seconds} seconds2={this.state.seconds2}/>
             )
-        }else if (this.state.running === true && this.state.bg1 === false) {
+        } else if (this.state.running === true && this.state.bg3 === true) {
+            return (
+                <CountDown3 minutes={this.state.minutes} minutes2={this.state.minutes2} seconds={this.state.seconds} seconds2={this.state.seconds2} />
+            )
+        } else if (this.state.running === true && this.state.bg1 === false) {
             return (
                 <div className='timer-body'>
                     <div className='logo-title'>
@@ -234,8 +256,8 @@ class Timer extends Component {
                     </div>
                     <div className='animation-selection'>
                         <div>
-                            <img onClick={this.selectAnimation1} className='ani-1' src={ani1}></img>
-                            <img onClick={this.selectAnimation2} className='ani-1' src={ani1}></img>
+                            <img onClick={this.selectAnimation1} className='ani-1' src={icon1}></img>
+                            <img onClick={this.selectAnimation2} className='ani-1' src={icon1}></img>
                         </div>
 
                     </div>
