@@ -10,7 +10,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
-    background-color: #f25fa1;
+    background-color: #2B9D8F;
 
 
 }
@@ -62,11 +62,11 @@ h1 {
 }
 .myButton {
     height: 36px;
-	box-shadow:inset 0px 1px 0px 0px #3071bb;
-	background:linear-gradient(to bottom, #3071bb 5%, #3071bb 100%);
-	background-color:#3071bb;
+	box-shadow:inset 0px 1px 0px 0px #E77050;
+	background:linear-gradient(to bottom, #E77050 5%, #E77050 100%);
+	background-color:#E77050;
 	border-radius:6px;
-	border:1px solid #3071bb;
+	border:1px solid #E77050;
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
@@ -76,11 +76,11 @@ h1 {
 	font-weight:bold;
 	padding:6px 20px;
 	text-decoration:none;
-	text-shadow:0px 1px 0px #3071bb;
+	text-shadow:0px 1px 0px #E77050;
 }
 .myButton:hover {
-	background:linear-gradient(to bottom, #3071bb 5%, #3071bb 100%);
-	background-color:#3071bb;
+	background:linear-gradient(to bottom, #E77050 5%, #E77050 100%);
+	background-color:#E77050;
 }
 .myButton:active {
 	position:relative;
@@ -89,11 +89,11 @@ h1 {
 
 .button-start {
     height: 36px;
-	box-shadow:inset 0px 1px 0px 0px #3071bb;
-	background:linear-gradient(to bottom, #3071bb 5%, #3071bb 100%);
-	background-color:#3071bb;
+	box-shadow:inset 0px 1px 0px 0px #E77050;
+	background:linear-gradient(to bottom, #E77050 5%, #E77050 100%);
+	background-color:#E77050;
 	border-radius:6px;
-	border:1px solid #3071bb;
+	border:1px solid #E77050;
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
@@ -103,7 +103,7 @@ h1 {
 	font-weight:bold;
 	padding:6px 20px;
 	text-decoration:none;
-	text-shadow:0px 1px 0px #3071bb;
+	text-shadow:0px 1px 0px #E77050;
 }
 
 .animation-selection {
@@ -117,4 +117,9 @@ h1 {
 .icon {
     height: 150px;
     width: 125px;
+}
+
+.icon-knight {
+    width: 170px;
+    height: 150px;
 }

@@ -1,23 +1,19 @@
 import React, { Component } from 'react';
 import '../css/countdown.css';
-import gameboy from '../media/gameboy.mp4';
-
-const borderStyle = {
-    backgroundColor: 'blue'
-};
-const CountDown = (props) => {
-    return(
+import knight from '../media/knight.mp4';
+const CountDown4 = (props) => {
+    return (
         <main>
             <section className='showcase'>
 
                 <div className='video-container'>
-                    <video autoPlay muted loop src={gameboy} type="video/mp4"></video>
+                    <video autoPlay muted loop src={knight} type="video/mp4"></video>
                 </div>
                 <div className='content'>
                     <div className='content-1'>
 
                     </div>
-                    <div className='content-2' style={borderStyle}>
+                    <div className='content-2'>
                         <h2>{props.minutes} {props.minutes2} : {props.seconds} {props.seconds2}</h2>
                     </div>
                     <div className='content-3'>
@@ -27,7 +23,7 @@ const CountDown = (props) => {
                 </div>
             </section>
         </main>
-  );
+    );
 }
 
-export default CountDown
+export default CountDown4

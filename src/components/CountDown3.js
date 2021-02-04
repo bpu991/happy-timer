@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../css/countdown.css';
 import caveman from '../media/caveman.mp4';
-const CountDown2 = (props) => {
+const CountDown3 = (props) => {
     return (
         <main>
             <section className='showcase'>
@@ -26,4 +26,4 @@ const CountDown2 = (props) => {
     );
 }
 
-export default CountDown2
+export default CountDown3

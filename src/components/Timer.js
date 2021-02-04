@@ -2,11 +2,14 @@ import React, { Component } from 'react';
 import CountDown from './CountDown';
 import CountDown2 from './CountDown2';
 import CountDown3 from './CountDown3';
+import CountDown4 from './CountDown4';
+import CountDownBasic from './CountDownBasic'
 import '../css/timer.css';
 import logo from '../media/logo2.png';
 import icon1 from '../media/gameboy-icon.png';
 import icon2 from '../media/skeleton-icon.png';
 import icon3 from '../media/caveman-icon.png';
+import icon4 from '../media/knight-icon.png';
 
 const borderStyle = {
     border: '4px dotted blue'
@@ -23,7 +26,8 @@ class Timer extends Component {
             running: false,
             bg1: false,
             bg2: false,
-            bg3: false
+            bg3: false,
+            bg4: false
         }
     }
 
@@ -78,7 +82,7 @@ class Timer extends Component {
 
     selectAnimation1 = () => {
         if (this.state.bg1 === false) {
-            this.setState({bg1: true, bg2: false});
+            this.setState({ bg1: true, bg2: false, bg3: false, bg4: false});
         } else {
             this.setState({bg1:false});
         }
@@ -87,7 +91,7 @@ class Timer extends Component {
 
     selectAnimation2 = () => {
         if (this.state.bg2 === false) {
-            this.setState({bg1: false, bg2: true});
+            this.setState({ bg1: false, bg2: true, bg3: false, bg4: false});
         } else {
             this.setState({bg2:false});
         }
@@ -96,11 +100,18 @@ class Timer extends Component {
 
     selectAnimation3 = () => {
         if (this.state.bg3 === false) {
-            this.setState({ bg1: false, bg2: false, bg3: true });
+            this.setState({ bg1: false, bg2: false, bg3: true, bg4: false});
         } else {
             this.setState({ bg3: false });
         }
+    }
 
+    selectAnimation4 = () => {
+        if (this.state.bg4 === false) {
+            this.setState({ bg1: false, bg2: false, bg3: false, bg4: true });
+        } else {
+            this.setState({ bg4: false });
+        }
     }
     startTimer = () => {
         let interval = setInterval(() => {
@@ -206,6 +217,15 @@ class Timer extends Component {
                                 <img onClick={this.selectAnimation3} className='icon' src={icon3}></img>
                             </div>
                         }
+                        {this.state.bg4 === true ?
+                            <div>
+                                <img onClick={this.selectAnimation4} style={borderStyle} className='icon-knight' src={icon4}></img>
+                            </div>
+                            :
+                            <div>
+                                <img onClick={this.selectAnimation4} className='icon-knight' src={icon4}></img>
+                            </div>
+                        }
                     </div>
                 </div>
             )
@@ -221,47 +241,15 @@ class Timer extends Component {
             return (
                 <CountDown3 minutes={this.state.minutes} minutes2={this.state.minutes2} seconds={this.state.seconds} seconds2={this.state.seconds2} />
             )
-        } else if (this.state.running === true && this.state.bg1 === false) {
+        } 
+        else if (this.state.running === true && this.state.bg4 === true) {
             return (
-                <div className='timer-body'>
-                    <div className='logo-title'>
-                        <img className='logo' src={logo}></img>
-                    </div>
-                    <div className='timer-content'>
-                        <div className='inc-buttons'>
-                            <button className='myButton' onClick={this.incrementMinutes}>+</button>
-                            <button className='myButton' onClick={this.incrementMinutes2}>+</button>
-                            <button className='myButton' onClick={this.incrementSeconds}>+</button>
-                            <button className='myButton' onClick={this.incrementSeconds2}>+</button>
-                        </div>
-                        <div className='timer-settings'>
-                            <h1>{this.state.minutes} {this.state.minutes2} : {this.state.seconds} {this.state.seconds2}</h1>
-                        </div>
-                        <div className='dec-buttons'>
-                            <button className='myButton' onClick={this.decrementMinutes}>-</button>
-                            <button className='myButton' onClick={this.decrementMinutes2}>-</button>
-                            <button className='myButton' onClick={this.decrementSeconds}>-</button>
-                            <button className='myButton' onClick={this.decrementSeconds2}>-</button>
-                        </div>
-                        {this.state.running === true ?
-                            <div className='start-button'>
-                                <button className='button-start' onClick={this.stopTimer}>Stop Timer</button>
-                            </div>
-                            :
-                            <div className='start-button'>
-                                <button className='button-start' onClick={this.startTimer}>Start Timer</button>
-                            </div>
-                        }
+                <CountDown4 minutes={this.state.minutes} minutes2={this.state.minutes2} seconds={this.state.seconds} seconds2={this.state.seconds2} />
+            )
+        } else if (this.state.running === true && this.state.bg1 === false && this.state.bg2 === false && this.state.bg3 === false && this.state.bg4 === false) {
+            return (
+                <CountDownBasic minutes={this.state.minutes} minutes2={this.state.minutes2} seconds={this.state.seconds} seconds2={this.state.seconds2} />
 
-                    </div>
-                    <div className='animation-selection'>
-                        <div>
-                            <img onClick={this.selectAnimation1} className='ani-1' src={icon1}></img>
-                            <img onClick={this.selectAnimation2} className='ani-1' src={icon1}></img>
-                        </div>
-
-                    </div>
-                </div>
             )
         }
     }

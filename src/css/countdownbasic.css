@@ -1,0 +1,16 @@
+
+
+.content-basic {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2B9D8F;
+    font-size: 200%;
+}
+
+h2 {
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+ }
