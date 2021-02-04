@@ -7,6 +7,7 @@
     width: 100%;
     color: #fff;
     height: 100vh;
+    overflow: auto;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
@@ -35,6 +36,7 @@ h1 {
     display: grid;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     height: 500px;
+    
 }
 .inc-buttons {
     display: flex;
@@ -60,13 +62,15 @@ h1 {
     justify-content: center;
     align-items: flex-start;
 }
+
+
 .myButton {
     height: 36px;
-	box-shadow:inset 0px 1px 0px 0px #E77050;
-	background:linear-gradient(to bottom, #E77050 5%, #E77050 100%);
-	background-color:#E77050;
+	box-shadow:inset 0px 1px 0px 0px #d46868;
+	background:linear-gradient(to bottom, #d46868 5%,#d46868 100%);
+	background-color:#d46868;
 	border-radius:6px;
-	border:1px solid #E77050;
+	border:1px solid #d46868;
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
@@ -76,24 +80,32 @@ h1 {
 	font-weight:bold;
 	padding:6px 20px;
 	text-decoration:none;
-	text-shadow:0px 1px 0px #E77050;
+	text-shadow:0px 1px 0px #d46868;
 }
 .myButton:hover {
-	background:linear-gradient(to bottom, #E77050 5%, #E77050 100%);
-	background-color:#E77050;
+	background:linear-gradient(to bottom, #d46868 5%, #d46868 100%);
+	background-color:#d46868;
 }
 .myButton:active {
 	position:relative;
 	top:1px;
 }
 
+.start-button {
+    grid-row: 3/4;
+    grid-column: 2/3;
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+    align-items: flex-start;
+}
 .button-start {
     height: 36px;
-	box-shadow:inset 0px 1px 0px 0px #E77050;
-	background:linear-gradient(to bottom, #E77050 5%, #E77050 100%);
-	background-color:#E77050;
+	box-shadow:inset 0px 1px 0px 0px #d46868;
+	background:linear-gradient(to bottom, #d46868 5%, #d46868 100%);
+	background-color:#d46868;
 	border-radius:6px;
-	border:1px solid #E77050;
+	border:1px solid #d46868;
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
@@ -103,12 +115,11 @@ h1 {
 	font-weight:bold;
 	padding:6px 20px;
 	text-decoration:none;
-	text-shadow:0px 1px 0px #E77050;
+	text-shadow:0px 1px 0px #d46868;
 }
 
 .animation-selection {
-    grid-row: 3/4;
-    grid-column: 2/3;
+    grid-row: 4/5;
     display: flex;
     justify-content: space-evenly;
     align-items: flex-start;
@@ -119,7 +130,19 @@ h1 {
     width: 125px;
 }
 
+.icon:hover {
+    height: 150px;
+    width: 125px;
+    opacity: 0.75;
+}
+
 .icon-knight {
     width: 170px;
     height: 150px;
+}
+
+.icon-knight:hover {
+    width: 170px;
+    height: 150px;
+    opacity: 0.75;
 }

@@ -12,7 +12,7 @@ import icon3 from '../media/caveman-icon.png';
 import icon4 from '../media/knight-icon.png';
 
 const borderStyle = {
-    border: '4px dotted blue'
+    opacity: '0.65'
 };
 
 class Timer extends Component {
@@ -114,6 +114,11 @@ class Timer extends Component {
         }
     }
     startTimer = () => {
+        if (this.state.minutes === 0 && this.state.minutes2 === 0 && this.state.seconds === 0 && this.state.seconds2 === 0) {
+            alert('Please select a time');
+            return;
+        }
+
         let interval = setInterval(() => {
             if (this.state.minutes !== 0 && this.state.minutes2 !== 0 && this.state.seconds === 0 && this.state.seconds2 !== 0) {
                 this.setState({running: true, seconds2: this.state.seconds2 - 1})
@@ -146,7 +151,7 @@ class Timer extends Component {
             } else if (this.state.minutes === 0 && this.state.minutes2 === 0 && this.state.seconds === 0 && this.state.seconds2 !== 0) {
                 this.setState({running: true, seconds2: this.state.seconds2 - 1})
             } else {
-                // alert('All Done!')
+                alert('All Done!')
                 clearInterval(interval)
                 this.setState({running:false, bg1: false, bg2:false})
             }
@@ -181,52 +186,49 @@ class Timer extends Component {
                             <button className='myButton'onClick={this.decrementSeconds}>-</button>
                             <button className='myButton'onClick={this.decrementSeconds2}>-</button>
                         </div>
-
-                        <div className='start-button'>
-                            <button className='button-start' onClick={this.startTimer}>Start Timer</button>
-                        </div>
-
-
+                        <div className='animation-selection'>
+                            {this.state.bg1 === true ?
+                                <div>
+                                    <img onClick={this.selectAnimation1} style={borderStyle} className='icon' src={icon1}></img>
+                                </div>
+                                :
+                                <div>
+                                    <img onClick={this.selectAnimation1} className='icon' src={icon1}></img>
+                                </div>
+                            }
+                            {this.state.bg2 === true ?
+                                <div>
+                                    <img onClick={this.selectAnimation2} style={borderStyle} className='icon' src={icon2}></img>
+                                </div>
+                                :
+                                <div>
+                                    <img onClick={this.selectAnimation2} className='icon' src={icon2}></img>
+                                </div>
+                            }
+                            {this.state.bg3 === true ?
+                                <div>
+                                    <img onClick={this.selectAnimation3} style={borderStyle} className='icon' src={icon3}></img>
+                                </div>
+                                :
+                                <div>
+                                    <img onClick={this.selectAnimation3} className='icon' src={icon3}></img>
+                                </div>
+                            }
+                            {this.state.bg4 === true ?
+                                <div>
+                                    <img onClick={this.selectAnimation4} style={borderStyle} className='icon-knight' src={icon4}></img>
+                                </div>
+                                :
+                                <div>
+                                    <img onClick={this.selectAnimation4} className='icon-knight' src={icon4}></img>
+                                </div>
+                            }
+                    </div> 
                     </div>
-
-                    <div className='animation-selection'>
-                        {this.state.bg1 === true ?
-                            <div>
-                                <img onClick={this.selectAnimation1} style={borderStyle} className='icon' src={icon1}></img>
-                            </div>
-                            :
-                            <div>
-                                <img onClick={this.selectAnimation1} className='icon' src={icon1}></img>
-                            </div>
-                        }
-                        {this.state.bg2 === true ?
-                            <div>
-                                <img onClick={this.selectAnimation2} style={borderStyle} className='icon' src={icon2}></img>
-                            </div>
-                            :
-                            <div>
-                                <img onClick={this.selectAnimation2} className='icon' src={icon2}></img>
-                            </div>
-                        }
-                        {this.state.bg3 === true ?
-                            <div>
-                                <img onClick={this.selectAnimation3} style={borderStyle} className='icon' src={icon3}></img>
-                            </div>
-                            :
-                            <div>
-                                <img onClick={this.selectAnimation3} className='icon' src={icon3}></img>
-                            </div>
-                        }
-                        {this.state.bg4 === true ?
-                            <div>
-                                <img onClick={this.selectAnimation4} style={borderStyle} className='icon-knight' src={icon4}></img>
-                            </div>
-                            :
-                            <div>
-                                <img onClick={this.selectAnimation4} className='icon-knight' src={icon4}></img>
-                            </div>
-                        }
+                    <div className='start-button'>
+                        <button className='button-start' onClick={this.startTimer}>Start Timer</button>
                     </div>
+                    
                 </div>
             )
         } else if (this.state.running === true && this.state.bg1 ===true ){
