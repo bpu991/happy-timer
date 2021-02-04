@@ -1,7 +1,6 @@
 * {
     margin: 0;
     padding: 0;
-    background-color: #f25fa1;
     }
 
 .timer-body {
@@ -19,18 +18,6 @@
 h1 {
     font-family: 'Open Sans', sans-serif;
  }
-.logo-title {
-    grid-row: 1/2;
-    grid-column: 1/2;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-}
-
-.logo {
-    height: 200px;
-}
-
 .timer-content {
     grid-row: 2/3;
     grid-column: 2/3;
@@ -106,15 +93,4 @@ h1 {
 	padding:6px 20px;
 	text-decoration:none;
 	text-shadow:0px 1px 0px #3071bb;
-}
-
-.animation-selection {
-    grid-row: 3/4;
-    grid-column: 2/3;
-    display: flex;
-    justify-content: center;
-}
-
-.ani-1{
-    height:100px;
 }
