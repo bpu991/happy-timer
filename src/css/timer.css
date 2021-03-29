@@ -3,6 +3,10 @@
     padding: 0;
     }
 
+h1 {
+    font-family: 'Open Sans', sans-serif;
+ }
+
 .timer-body {
     width: 100%;
     color: #fff;
@@ -18,7 +22,7 @@
 
 .logo-title {
     grid-row: 1/2;
-    grid-column: 1/2;
+    grid-column: 2/3;
     display: flex;
     justify-content: center;
 }
@@ -27,9 +31,7 @@
     height: 300px;
     width: 500px;
 }
-h1 {
-    font-family: 'Open Sans', sans-serif;
- }
+
 .timer-content {
     grid-row: 2/3;
     grid-column: 2/3;
@@ -122,29 +124,47 @@ h1 {
     grid-row: 4/5;
     display: flex;
     justify-content: space-evenly;
-    align-items: flex-start;
+    align-items: center;
+    padding-left: 5%;
 }
 
 .icon {
-    height: 150px;
-    width: 125px;
+    height: 160px;
+    width: 150px;
+    transition: all .2s ease-in-out;
 }
 
 .icon:hover {
+    height: 160px;
+    width: 150px;
+    transform: scale(1.1);
+}
+
+.icon-skeleton {
     height: 150px;
-    width: 125px;
-    opacity: 0.75;
+    width: 110px;
+    padding-top: 10%;
+    transition: all .2s ease-in-out;
+}
+
+.icon-skeleton:hover {
+    height: 150px;
+    width: 110px;
+    transform: scale(1.1);
 }
 
 .icon-knight {
-    width: 170px;
-    height: 150px;
+    height: 140px;
+    width: 180px;
+    padding-top: 12%;
+    transition: all .2s ease-in-out;
 }
 
 .icon-knight:hover {
-    width: 170px;
-    height: 150px;
-    opacity: 0.75;
+    height: 140px;
+    width: 180px;
+    padding-top: 12%;
+    transform: scale(1.1);
 }
 
 .footer {
@@ -167,13 +187,186 @@ h1 {
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     background-color: #2B9D8F;
+}
+
+    .logo-title {
+        grid-row: 1/2;
+        grid-column: 2/3;
+        display: flex;
+        justify-content: center;
+    }
+
+    .logo {
+        height: 300px;
+        width: 500px;
+    }
+
+h1 {
+    font-family: 'Open Sans', sans-serif;
+ }
+.timer-content {
+    grid-row: 2/3;
+    grid-column: 2/3;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    height: 500px;
+    
+}
+.inc-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.timer-settings {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 200%;
+}
+
+.dec-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.start-button {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+
+.myButton {
+    height: 36px;
+	box-shadow:inset 0px 1px 0px 0px #d46868;
+	background:linear-gradient(to bottom, #d46868 5%,#d46868 100%);
+	background-color:#d46868;
+	border-radius:6px;
+	border:1px solid #d46868;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+    font-family:Arial;
+    margin: 5px;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 20px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #d46868;
+}
+
+.myButton:hover {
+	background:linear-gradient(to bottom, #d46868 5%, #d46868 100%);
+	background-color:#d46868;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+.start-button {
+    grid-row: 3/4;
+    grid-column: 2/3;
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+    align-items: flex-start;
+}
+.button-start {
+    height: 36px;
+	box-shadow:inset 0px 1px 0px 0px #d46868;
+	background:linear-gradient(to bottom, #d46868 5%, #d46868 100%);
+	background-color:#d46868;
+	border-radius:6px;
+	border:1px solid #d46868;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+    font-family:Arial;
+    margin: 5px;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 20px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #d46868;
+}
+
+.animation-selection {
+    grid-row: 4/5;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.icon {
+    height: 110px;
+    width: 100px;
+    transition: all .2s ease-in-out;
+    padding-right: 10px;
+    padding-left: 10px
+}
+
+.icon:hover {
+    height: 110px;
+    width: 100px;
+    transform: scale(1.2);
+}
+
+.icon-knight {
+    height: 100px;
+    width: 115px;
+ 
+    transition: all .2s ease-in-out;
+}
+
+.icon-knight:hover {
+    height: 100px;
+    width: 115px;
+    transform: scale(1.2);
+}
+
+.icon-skeleton {
+    height: 100px;
+    width: 70px;
+    padding-top: 10%;
+    transition: all .2s ease-in-out;
+}
+
+.icon-skeleton:hover {
+    height: 100px;
+    width: 70px;
+    transform: scale(1.2);
+}
+.footer {
+    height: 70px;
+    width: 100%;
+    grid-row: 4/5;
+    grid-column: 1/4;
+    display: flex;
+    background-color: #2B9D8F;
+    padding-top: 6%;
+}
+}
+
+@media only screen and (max-width: 1000px) {
+  .timer-body {
+    width: 100%;
+    color: #fff;
+    height: calc(100vh);
+    overflow: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    background-color: #2B9D8F;
 
 
     }
 
 .logo-title {
     grid-row: 1/2;
-    grid-column: 1/2;
+    grid-column: 2/3;
     display: flex;
     justify-content: center;
 }
@@ -281,181 +474,43 @@ h1 {
 }
 
 .icon {
-    height: 150px;
-    width: 125px;
+    height: 110px;
+    width: 100px;
+    transition: all .2s ease-in-out;
+    padding-right: 10px;
+    padding-left: 10px
 }
 
 .icon:hover {
-    height: 150px;
-    width: 125px;
-    opacity: 0.75;
+    height: 110px;
+    width: 100px;
+    transform: scale(1.2);
 }
 
 .icon-knight {
-    width: 170px;
-    height: 150px;
+    height: 100px;
+    width: 115px;
+ 
+    transition: all .2s ease-in-out;
 }
 
 .icon-knight:hover {
-    width: 170px;
-    height: 150px;
-    opacity: 0.75;
+    height: 100px;
+    width: 115px;
+    transform: scale(1.2);
 }
 
-.footer {
-    height: 70px;
-    width: 100%;
-    grid-row: 4/5;
-    grid-column: 1/4;
-    display: flex;
-    background-color: #2B9D8F;
-    padding-top: 6%;
-}
+.icon-skeleton {
+    height: 100px;
+    width: 70px;
+    padding-top: 10%;
+    transition: all .2s ease-in-out;
 }
 
-@media only screen and (max-width: 1000px) {
-  .timer-body {
-    width: 100%;
-    color: #fff;
-    height: calc(100vh);
-    overflow: auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
-    background-color: #2B9D8F;
-
-
-    }
-
-.logo-title {
-    grid-row: 1/2;
-    grid-column: 1/2;
-    display: flex;
-    justify-content: center;
-}
-
-.logo {
-    height:0px;
-    width: 0px;
-}
-h1 {
-    font-family: 'Open Sans', sans-serif;
- }
-.timer-content {
-    grid-row: 2/3;
-    grid-column: 2/3;
-    display: grid;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
-    height: 500px;
-    
-}
-.inc-buttons {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-}
-
-.timer-settings {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 200%;
-}
-
-.dec-buttons {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-}
-
-.start-button {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-}
-
-
-.myButton {
-    height: 36px;
-	box-shadow:inset 0px 1px 0px 0px #d46868;
-	background:linear-gradient(to bottom, #d46868 5%,#d46868 100%);
-	background-color:#d46868;
-	border-radius:6px;
-	border:1px solid #d46868;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-    font-family:Arial;
-    margin: 5px;
-	font-size:15px;
-	font-weight:bold;
-	padding:6px 20px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #d46868;
-}
-.myButton:hover {
-	background:linear-gradient(to bottom, #d46868 5%, #d46868 100%);
-	background-color:#d46868;
-}
-.myButton:active {
-	position:relative;
-	top:1px;
-}
-
-.start-button {
-    grid-row: 3/4;
-    grid-column: 2/3;
-    display: flex;
-    justify-content: center;
-    margin-top: 10%;
-    align-items: flex-start;
-}
-.button-start {
-    height: 36px;
-	box-shadow:inset 0px 1px 0px 0px #d46868;
-	background:linear-gradient(to bottom, #d46868 5%, #d46868 100%);
-	background-color:#d46868;
-	border-radius:6px;
-	border:1px solid #d46868;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-    font-family:Arial;
-    margin: 5px;
-	font-size:15px;
-	font-weight:bold;
-	padding:6px 20px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #d46868;
-}
-
-.animation-selection {
-    grid-row: 4/5;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: flex-start;
-}
-
-.icon {
-    height: 150px;
-    width: 125px;
-}
-
-.icon:hover {
-    height: 150px;
-    width: 125px;
-    opacity: 0.75;
-}
-
-.icon-knight {
-    width: 170px;
-    height: 150px;
-}
-
-.icon-knight:hover {
-    width: 170px;
-    height: 150px;
-    opacity: 0.75;
+.icon-skeleton:hover {
+    height: 100px;
+    width: 70px;
+    transform: scale(1.2);
 }
 
 .footer {

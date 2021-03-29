@@ -49,3 +49,7 @@
         font-size: 200%;
     }
 
+    .content-2:hover {
+        opacity: 0.5;
+    }
+
