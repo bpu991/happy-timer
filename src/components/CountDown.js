@@ -1,17 +1,25 @@
 import React, { Component } from 'react';
-import '../css/countdown.css';
+import { useHistory } from "react-router-dom";
+
 import gameboy from '../media/gameboy.mp4';
 import skeleton from '../media/skeleton.mp4';
 import caveman from '../media/caveman.mp4';
 import knight from '../media/knight.mp4';
-import arrow from '../media/arrow.png';
+import '../css/countdown.css';
+
 const borderStyle = {
     transform: 'rotate(180deg)',
     opacity: '0.5'
 };
 
 const CountDown = (props) => {
-    if (props.bg1) {
+    const history = useHistory();
+
+    const handleClick = () => {
+        window.location.reload(true);
+    }
+
+    if (props.gameboyAnimation) {
         return (
             <main>
                 <section className='showcase'>
@@ -21,9 +29,9 @@ const CountDown = (props) => {
                     </div>
                     <div className='content'>
                         <div className='content-1'>
-                            {/* <img style={borderStyle} src={arrow} /> */}
+        
                         </div>
-                        <div className='content-2'>
+                        <div className='content-2' onClick={handleClick}>
                             <h2>{props.minutes} {props.minutes2} : {props.seconds} {props.seconds2}</h2>
                         </div>
                         <div className='content-3'>
@@ -34,7 +42,7 @@ const CountDown = (props) => {
                 </section>
             </main>
         );
-    } else if (props.bg2) {
+    } else if (props.skeletonAnimation) {
         return (
             <main>
                 <section className='showcase'>
@@ -44,9 +52,9 @@ const CountDown = (props) => {
                     </div>
                     <div className='content'>
                         <div className='content-1'>
-                            {/* <img style={borderStyle} src={arrow} /> */}
+                           
                         </div>
-                        <div className='content-2'>
+                        <div className='content-2' onClick={handleClick}>
                             <h2>{props.minutes} {props.minutes2} : {props.seconds} {props.seconds2}</h2>
                         </div>
                         <div className='content-3'>
@@ -57,7 +65,7 @@ const CountDown = (props) => {
                 </section>
             </main>
         );
-    } else if (props.bg3) {
+    } else if (props.cavemanAnimation) {
         return (
             <main>
                 <section className='showcase'>
@@ -67,9 +75,9 @@ const CountDown = (props) => {
                     </div>
                     <div className='content'>
                         <div className='content-1'>
-                            {/* <img style={borderStyle} src={arrow} /> */}
+                           
                         </div>
-                        <div className='content-2'>
+                        <div className='content-2' onClick={handleClick}>
                             <a href='/'>
                                 <h2>{props.minutes} {props.minutes2} : {props.seconds} {props.seconds2}</h2>
                             </a>
@@ -83,7 +91,7 @@ const CountDown = (props) => {
                 </section>
             </main>
         );
-    } else if (props.bg4) {
+    } else if (props.knightAnimation) {
         return (
             <main>
                 <section className='showcase'>
@@ -93,9 +101,9 @@ const CountDown = (props) => {
                     </div>
                     <div className='content'>
                         <div className='content-1'>
-                            {/* <img style={borderStyle} src={arrow} /> */}
+                         
                         </div>
-                        <div className='content-2'>
+                        <div className='content-2' onClick={handleClick}>
                             <h2>{props.minutes} {props.minutes2} : {props.seconds} {props.seconds2}</h2>
                         </div>
                         <div className='content-3'>
@@ -109,7 +117,6 @@ const CountDown = (props) => {
     } else {
         return (
             <main>
-
                 <div className='content-basic'>
                     <div className='content-1'>
 
