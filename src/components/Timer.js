@@ -234,27 +234,18 @@ class Timer extends Component {
                     
                 </div>
             )
-        } else if (this.state.running === true && this.state.bg1 ===true ){
+        } else {
             return (
-                <CountDown minutes={this.state.minutes} minutes2={this.state.minutes2} seconds={this.state.seconds} seconds2={this.state.seconds2}/>
-            )
-        } else if (this.state.running === true && this.state.bg2 === true ){
-            return (
-                <CountDown2 minutes={this.state.minutes} minutes2={this.state.minutes2} seconds={this.state.seconds} seconds2={this.state.seconds2}/>
-            )
-        } else if (this.state.running === true && this.state.bg3 === true) {
-            return (
-                <CountDown3 minutes={this.state.minutes} minutes2={this.state.minutes2} seconds={this.state.seconds} seconds2={this.state.seconds2} />
-            )
-        } 
-        else if (this.state.running === true && this.state.bg4 === true) {
-            return (
-                <CountDown4 minutes={this.state.minutes} minutes2={this.state.minutes2} seconds={this.state.seconds} seconds2={this.state.seconds2} />
-            )
-        } else if (this.state.running === true && this.state.bg1 === false && this.state.bg2 === false && this.state.bg3 === false && this.state.bg4 === false) {
-            return (
-                <CountDownBasic minutes={this.state.minutes} minutes2={this.state.minutes2} seconds={this.state.seconds} seconds2={this.state.seconds2} />
-
+                <CountDown 
+                    minutes={this.state.minutes} 
+                    minutes2={this.state.minutes2} 
+                    seconds={this.state.seconds} 
+                    seconds2={this.state.seconds2}
+                    bg1={this.state.bg1}
+                    bg2={this.state.bg2}
+                    bg3={this.state.bg3}
+                    bg4={this.state.bg4}
+                />
             )
         }
     }
