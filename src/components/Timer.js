@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import CountDown from './CountDown';
 import '../css/timer.css';
 import logo from '../media/logo2.png';
+import copyright from '../media/copyright.png'
 import icon1 from '../media/gameboy-icon.png';
 import icon2 from '../media/skeleton-icon.png';
 import icon3 from '../media/caveman-icon.png';
@@ -235,6 +236,9 @@ class Timer extends Component {
                         <button className='button-start' onClick={this.startTimer}>Start Timer</button>
                     </div>
                     <div className='footer'>
+                        <a href='https://github.com/bpu991'>
+                            <img style={{height: '70px', width: '300px'}}src={copyright} />
+                        </a>
                             
                     </div>
                     
