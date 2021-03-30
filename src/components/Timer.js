@@ -3,13 +3,14 @@ import CountDown from './CountDown';
 import '../css/timer.css';
 import logo from '../media/logo2.png';
 import copyright from '../media/copyright.png'
-import icon1 from '../media/gameboy-icon.png';
-import icon2 from '../media/skeleton-icon.png';
-import icon3 from '../media/caveman-icon.png';
+import gameboyIcon from '../media/gameboy-icon.png';
+import skeletonIcon from '../media/skeleton-icon.png';
+import cavemanIcon from '../media/caveman-icon.png';
+import knightIcon from '../media/knight-icon.png';
 import cavemanGif from '../media/caveman.gif';
 import knightGif from '../media/knight.gif';
 import skeletonGif from '../media/skeleton.gif';
-import icon4 from '../media/knight-icon.png';
+
 
 class Timer extends Component {
     constructor() {
@@ -79,10 +80,16 @@ class Timer extends Component {
         }
     }
 
+    // The following functions determine the selection for the various animations
     selectGameboyAnimation = () => {
-        if (this.state.gameboyAnimation === false) { // if gameboyAnimation is false, this changes it to true and changes the other animations to false
+
+        // if gameboyAnimation is false, this changes it to true and changes the other animations to false
+        if (this.state.gameboyAnimation === false) { 
             this.setState({ gameboyAnimation: true, skeletonAnimation: false, cavemanAnimation: false, knightAnimation: false});
-        } else { // handles the case where you select an animation and want to deselect it without having to choose another one
+        } 
+
+        // handles the case where you select an animation and want to deselect it without having to choose another one
+        else { 
             this.setState({gameboyAnimation:false});
         }
 
@@ -113,21 +120,26 @@ class Timer extends Component {
         }
     }
 
+    // Handles the audio playback when the timer is finished
     playAudio = () => {
         const audioEl = document.getElementsByClassName("audio-element")[0]
         audioEl.play()
     }
 
+
     startTimer = () => {
+        // If no time is selected, an alert pop ups telling the user to select a time
         if (this.state.minutes === 0 && this.state.minutes2 === 0 && this.state.seconds === 0 && this.state.seconds2 === 0) {
             alert('Please select a time');
             return;
         }
-
+        
+         // If no animation is selected, an alert pop ups telling the user to select an animation
         if (!this.state.gameboyAnimation && !this.state.skeletonAnimation && !this.state.cavemanAnimation && !this.state.knightAnimation) {
             alert('Please select an animation');
             return;
         }
+
         let interval = setInterval(() => {
             if (this.state.minutes !== 0 && this.state.minutes2 !== 0 && this.state.seconds === 0 && this.state.seconds2 !== 0) {
                 this.setState({ running: true, seconds2: this.state.seconds2 - 1 })
@@ -160,10 +172,8 @@ class Timer extends Component {
             } else if (this.state.minutes === 0 && this.state.minutes2 === 0 && this.state.seconds === 0 && this.state.seconds2 !== 0) {
                 this.setState({ running: true, seconds2: this.state.seconds2 - 1 })
             } else {
-                this.playAudio()
-                // alert('All Done!')
+                this.playAudio() 
                 clearInterval(interval)
-                // window.location.reload(true);
             }
         }, 1000)
 
@@ -195,11 +205,11 @@ class Timer extends Component {
                         <div className='animation-selection'>
                             {/* {this.state.gameboyAnimation === true ?
                                 <div>
-                                    <img onClick={this.selectGameboyAnimation} style={borderStyle} className='icon' src={icon1}></img>
+                                    <img onClick={this.selectGameboyAnimation} style={borderStyle} className='icon' src={gameboyIcon}></img>
                                 </div>
                                 :
                                 <div>
-                                    <img onClick={this.selectGameboyAnimation} className='icon' src={icon1}></img>
+                                    <img onClick={this.selectGameboyAnimation} className='icon' src={gameboyIcon}></img>
                                 </div>
                             } */}
                             {this.state.skeletonAnimation === true ?
@@ -208,7 +218,7 @@ class Timer extends Component {
                                 </div>
                                 :
                                 <div>
-                                    <img onClick={this.selectSkeletonAnimation} className='icon-skeleton' src={icon2}></img>
+                                    <img onClick={this.selectSkeletonAnimation} className='icon-skeleton' src={skeletonIcon}></img>
                                 </div>
                             }
                             {this.state.cavemanAnimation === true ?
@@ -218,7 +228,7 @@ class Timer extends Component {
                                 :
                                 <div>
     
-                                    <img onClick={this.selectCavemanAnimation} className='icon' src={icon3}></img>
+                                    <img onClick={this.selectCavemanAnimation} className='icon' src={cavemanIcon}></img>
                                 </div>
                             }
                             {this.state.knightAnimation === true ?
@@ -227,7 +237,7 @@ class Timer extends Component {
                                 </div>
                                 :
                                 <div>
-                                    <img onClick={this.selectKnightAnimation} className='icon-knight' src={icon4}></img>
+                                    <img onClick={this.selectKnightAnimation} className='icon-knight' src={knightIcon}></img>
                                 </div>
                             }
                     </div> 
