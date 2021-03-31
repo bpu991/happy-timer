@@ -1,24 +1,13 @@
 import React, { Component } from 'react';
 import CountDown from './CountDown';
-import '../css/timer.css';
+import '../css/alternate-timer.css';
 import logo from '../media/logo2.png';
-import icon1 from '../media/gameboy-icon.png';
 import icon2 from '../media/skeleton-icon.png';
 import icon3 from '../media/caveman-icon.png';
 import cavemanGif from '../media/caveman.gif';
 import knightGif from '../media/knight.gif';
 import skeletonGif from '../media/skeleton.gif';
 import icon4 from '../media/knight-icon.png';
-
-const borderStyle = {
-    opacity: '0.65'
-};
-
-const knightGifStyle = {
-    height: '140px',
-    width: '180px',
-    paddingTop: '10%'
-}
 
 class AlternateTimer extends Component {
     constructor() {
@@ -143,21 +132,20 @@ class AlternateTimer extends Component {
                         <img className='logo' src={logo}></img>
                     </div>
                     <div className='timer-content'>
-            
+                        <div className='input-fields'>
                             <input className='field' placeholder={this.state.minutes} value={this.state.minutes} onChange={this.handleMinutes} />
                             <input className='field' placeholder={this.state.seconds} value={this.state.seconds} onChange={this.handleSeconds} />
-                        
-
+                        </div>
+                        <div className='input-descriptions'>
+                            <div className='min'>
+                                <h2>min</h2>
+                            </div>
+                            <div className='sec'>
+                                <h2>sec</h2>
+                            </div>
+                            
+                        </div>
                         <div className='animation-selection'>
-                            {/* {this.state.gameboyAnimation === true ?
-                                <div>
-                                    <img onClick={this.selectGameboyAnimation} style={borderStyle} className='icon' src={icon1}></img>
-                                </div>
-                                :
-                                <div>
-                                    <img onClick={this.selectGameboyAnimation} className='icon' src={icon1}></img>
-                                </div>
-                            } */}
                             {this.state.skeletonAnimation === true ?
                                 <div>
                                     <img onClick={this.selectSkeletonAnimation} className='icon-skeleton' src={skeletonGif}></img>

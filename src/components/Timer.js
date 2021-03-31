@@ -3,7 +3,6 @@ import CountDown from './CountDown';
 import '../css/timer.css';
 import logo from '../media/logo2.png';
 import copyright from '../media/copyright.png'
-import gameboyIcon from '../media/gameboy-icon.png';
 import skeletonIcon from '../media/skeleton-icon.png';
 import cavemanIcon from '../media/caveman-icon.png';
 import knightIcon from '../media/knight-icon.png';
@@ -21,7 +20,6 @@ class Timer extends Component {
             seconds: 0,
             seconds2: 0,
             running: false,
-            gameboyAnimation: false,
             skeletonAnimation: false,
             cavemanAnimation: false,
             knightAnimation: false,
@@ -60,7 +58,6 @@ class Timer extends Component {
         if (this.state.minutes < 5) {
             this.setState({minutes: this.state.minutes + 1})
         }
-        console.log(this.state.minutes)
     }
 
     decrementMinutes = () => {
@@ -81,24 +78,14 @@ class Timer extends Component {
     }
 
     // The following functions determine the selection for the various animations
-    selectGameboyAnimation = () => {
-
+    selectSkeletonAnimation = () => {
         // if gameboyAnimation is false, this changes it to true and changes the other animations to false
-        if (this.state.gameboyAnimation === false) { 
-            this.setState({ gameboyAnimation: true, skeletonAnimation: false, cavemanAnimation: false, knightAnimation: false});
+        if (this.state.skeletonAnimation === false) {
+            this.setState({ gameboyAnimation: false, skeletonAnimation: true, cavemanAnimation: false, knightAnimation: false});
         } 
 
         // handles the case where you select an animation and want to deselect it without having to choose another one
-        else { 
-            this.setState({gameboyAnimation:false});
-        }
-
-    }
-
-    selectSkeletonAnimation = () => {
-        if (this.state.skeletonAnimation === false) {
-            this.setState({ gameboyAnimation: false, skeletonAnimation: true, cavemanAnimation: false, knightAnimation: false});
-        } else {
+        else {
             this.setState({skeletonAnimation:false});
         }
 
@@ -139,44 +126,45 @@ class Timer extends Component {
             alert('Please select an animation');
             return;
         }
+        
+        this.setState({running: true})
 
         let interval = setInterval(() => {
             if (this.state.minutes !== 0 && this.state.minutes2 !== 0 && this.state.seconds === 0 && this.state.seconds2 !== 0) {
-                this.setState({ running: true, seconds2: this.state.seconds2 - 1 })
+                this.setState({ seconds2: this.state.seconds2 - 1 })
             } else if (this.state.minutes !== 0 && this.state.minutes2 !== 0 && this.state.seconds === 0 && this.state.seconds2 === 0) {
-                this.setState({ running: true, minutes2: this.state.minutes2 - 1, seconds: 5, seconds2: 9 })
+                this.setState({ minutes2: this.state.minutes2 - 1, seconds: 5, seconds2: 9 })
             } else if (this.state.minutes !== 0 && this.state.minutes2 !== 0 && this.state.seconds !== 0 && this.state.seconds2 !== 0) {
-                this.setState({ running: true, seconds2: this.state.seconds2 - 1 })
+                this.setState({ seconds2: this.state.seconds2 - 1 })
             } else if (this.state.minutes !== 0 && this.state.minutes2 !== 0 && this.state.seconds !== 0 && this.state.seconds2 === 0) {
-                this.setState({ running: true, seconds: this.state.seconds - 1, seconds2: 9 })
+                this.setState({ seconds: this.state.seconds - 1, seconds2: 9 })
             } else if (this.state.minutes !== 0 && this.state.minutes2 === 0 && this.state.seconds !== 0 && this.state.seconds2 !== 0) {
-                this.setState({ running: true, seconds2: this.state.seconds2 - 1 })
+                this.setState({ seconds2: this.state.seconds2 - 1 })
             } else if (this.state.minutes !== 0 && this.state.minutes2 === 0 && this.state.seconds !== 0 && this.state.seconds2 === 0) {
-                this.setState({ running: true, seconds: this.state.seconds - 1, seconds2: 9 })
+                this.setState({ seconds: this.state.seconds - 1, seconds2: 9 })
             } else if (this.state.minutes !== 0 && this.state.minutes2 === 0 && this.state.seconds === 0 && this.state.seconds2 !== 0) {
-                this.setState({ running: true, seconds2: this.state.seconds2 - 1 })
+                this.setState({ seconds2: this.state.seconds2 - 1 })
             } else if (this.state.minutes !== 0 && this.state.minutes2 === 0 && this.state.seconds === 0 && this.state.seconds2 === 0) {
-                this.setState({ running: true, minutes: this.state.minutes - 1, minutes2: 9, seconds: 5, seconds2: 9 })
+                this.setState({ minutes: this.state.minutes - 1, minutes2: 9, seconds: 5, seconds2: 9 })
             } else if (this.state.minutes === 0 && this.state.minutes2 !== 0 && this.state.seconds !== 0 && this.state.seconds2 !== 0) {
-                this.setState({ running: true, seconds2: this.state.seconds2 - 1 })
+                this.setState({ seconds2: this.state.seconds2 - 1 })
             } else if (this.state.minutes === 0 && this.state.minutes2 !== 0 && this.state.seconds !== 0 && this.state.seconds2 === 0) {
-                this.setState({ running: true, seconds: this.state.seconds - 1, seconds2: 9 })
+                this.setState({ seconds: this.state.seconds - 1, seconds2: 9 })
             } else if (this.state.minutes === 0 && this.state.minutes2 !== 0 && this.state.seconds === 0 && this.state.seconds2 !== 0) {
-                this.setState({ running: true, seconds2: this.state.seconds2 - 1 })
+                this.setState({ seconds2: this.state.seconds2 - 1 })
             } else if (this.state.minutes === 0 && this.state.minutes2 !== 0 && this.state.seconds === 0 && this.state.seconds2 === 0) {
-                this.setState({ running: true, minutes2: this.state.minutes2 - 1, seconds: 5, seconds2: 9 })
+                this.setState({ minutes2: this.state.minutes2 - 1, seconds: 5, seconds2: 9 })
             } else if (this.state.minutes === 0 && this.state.minutes2 === 0 && this.state.seconds !== 0 && this.state.seconds2 !== 0) {
-                this.setState({ running: true, seconds2: this.state.seconds2 - 1 })
+                this.setState({ seconds2: this.state.seconds2 - 1 })
             } else if (this.state.minutes === 0 && this.state.minutes2 === 0 && this.state.seconds !== 0 && this.state.seconds2 === 0) {
-                this.setState({ running: true, seconds: this.state.seconds - 1, seconds2: 9 })
+                this.setState({ seconds: this.state.seconds - 1, seconds2: 9 })
             } else if (this.state.minutes === 0 && this.state.minutes2 === 0 && this.state.seconds === 0 && this.state.seconds2 !== 0) {
-                this.setState({ running: true, seconds2: this.state.seconds2 - 1 })
+                this.setState({ seconds2: this.state.seconds2 - 1 })
             } else {
                 this.playAudio();
                 clearInterval(interval);
             }
         }, 1000)
-
     }
 
     render() {
@@ -203,15 +191,6 @@ class Timer extends Component {
                             <button className='myButton'onClick={this.decrementSeconds2}>-</button>
                         </div>                
                         <div className='animation-selection'>
-                            {/* {this.state.gameboyAnimation === true ?
-                                <div>
-                                    <img onClick={this.selectGameboyAnimation} style={borderStyle} className='icon' src={gameboyIcon}></img>
-                                </div>
-                                :
-                                <div>
-                                    <img onClick={this.selectGameboyAnimation} className='icon' src={gameboyIcon}></img>
-                                </div>
-                            } */}
                             {this.state.skeletonAnimation === true ?
                                 <div>
                                     <img onClick={this.selectSkeletonAnimation} className='icon-skeleton' src={skeletonGif}></img>

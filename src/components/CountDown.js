@@ -81,8 +81,8 @@ const CountDown = (props) => {
                         </audio>
                         <div className='content'>
                             <div className='content-2' onClick={handleClick}>
-                                {/* <h2 >{props.minutes} {props.minutes2} : {props.seconds} {props.seconds2}</h2> */}
-                                <h2 >{props.minutes} {props.minutes2} : {props.seconds > 10 ? props.seconds : `0 ${props.seconds}`}</h2>
+                                <h2 >{props.minutes} {props.minutes2} : {props.seconds} {props.seconds2}</h2>
+                                {/* <h2 >{props.minutes} {props.minutes2} : {props.seconds > 10 ? props.seconds : `0 ${props.seconds}`}</h2> */}
                             </div>
                         </div>
                     </section>
