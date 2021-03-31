@@ -1,10 +1,11 @@
 # **Happy Timer**
 ---
-###### Welcome to Happy Timer! Happy Timer is a simple count down application designed to deliver a unique user experience. Built entirely with React.js and CSS3, users are able to select a time and choose from one of three character animations. When the start button is clicked, the timer will begin its countdown and the selected animation will run alongside the clock.
+###### Welcome to Happy Timer! Happy Timer is a simple count down application designed to deliver a unique user experience. Built entirely with React.js and CSS3, users are able to select a time and choose from one of three character animations. When the start button is clicked, the timer will begin its countdown and the selected animation will run alongside the clock. Check it out here -> [Live link](https://happy-timer.herokuapp.com/)
 ![Happy Timer Demo](./src/media/demo.gif)
 
 ### Table of Contents
 ---
+
 1. **Inspiration**
 2. **Technologies**
 3. **Code Snippets**
@@ -43,7 +44,7 @@ this.state = {
             knightAnimation: false,
         }
 ```
-
+#### Minutes and Seconds
 ###### *minutes* and *minutes2* were created in order to allow the user to select a time by selecting the 10s and singles. For example, incrementing *minutes* would increase the timer by 10 minutes where as incrementing *minutes2* would increment the timer by 1 minute. This logic also applies to *seconds* and *seconds2*. 
 
 ``` JavaScript
@@ -98,10 +99,14 @@ this.state = {
 ```
 
 ![Time Select](./src/media/time-select.gif)
+
+#### Running
 ###### *running* is used to determine whether or not the timer is currently active. When the user clicks on the start button, an onClick event is triggered which sets *running* to true in the startTimer() function.
 ```JavaScript
 this.setState({running: true})
 ```
+
+#### Animation Select
 ###### *skeletonAnimation*, *cavemanAnimation* and *knightAnimation* are all used to determine which animation the user has selected. If the user clicks on one of the static character images, the value of that respective state would become true. Additionally, if the user makes a selection but changes their mind and decides they want to select another one, the selectAnimation() methods sets all of the values to false with the exception of the one chosen.
 
 ``` JavaScript
@@ -114,6 +119,7 @@ selectSkeletonAnimation = () => {
     }
 ```
 
+#### Timer Logic
 ###### The main part of any timer app is, of course, the logic behind the timer functionality. When I was thinking of ways to implement the code for the timer, I came up with two different ways that each serve their own purpose. The first one, which is the one I ended up going with, allows for a better user experience. However, it sacrifices a fair bit of code ledgibilty in return. When the startTimer() method is called, this setInterval function is called:
 
 ``` JavaScript
