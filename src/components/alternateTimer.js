@@ -20,7 +20,7 @@ const knightGifStyle = {
     paddingTop: '10%'
 }
 
-class Timer extends Component {
+class AlternateTimer extends Component {
     constructor() {
         super();
         this.state = {
@@ -37,18 +37,29 @@ class Timer extends Component {
     }
 
     handleMinutes = (e) => {
-        this.setState({ minutes: e.target.value })
+        if (e.target.value > 60) {
+            alert('Please enter a number between 0 and 60')
+        } else {
+             this.setState({ minutes: e.target.value })
+        }
+       
         console.log(this.state.minutes)
     }
 
     handleSeconds = (e) => {
-        this.setState({ seconds: e.target.value })
+        if (e.target.value === `${0}${0}`  || e.target.value > 59) {
+            alert('Please enter a number between 0 and 59')
+        } else {
+            this.setState({ seconds: e.target.value })
+        }
     }
 
     // Handles the increment/decrement logic for seconds
-    incrementSeconds = () => {
-        if (this.state.seconds < 5) {
-            this.setState({ seconds: this.state.seconds + 1 })
+    incrementSeconds = (e) => {
+        if (e.target.value > 60) {
+            alert('enter valid number')
+        } else {
+            this.setState({ seconds: e.target.value })
         }
     }
 
@@ -73,29 +84,6 @@ class Timer extends Component {
     }
 
     // Handles the increment/decrement logic for minutes
-    incrementMinutes = () => {
-        if (this.state.minutes < 5) {
-            this.setState({ minutes: this.state.minutes + 1 })
-        }
-        console.log(this.state.minutes)
-    }
-
-    decrementMinutes = () => {
-        if (this.state.minutes > 0) {
-            this.setState({ minutes: this.state.minutes - 1 })
-        }
-    }
-    incrementMinutes2 = () => {
-        if (this.state.minutes2 < 9) {
-            this.setState({ minutes2: this.state.minutes2 + 1 })
-        }
-    }
-
-    decrementMinutes2 = () => {
-        if (this.state.minutes2 > 0) {
-            this.setState({ minutes2: this.state.minutes2 - 1 })
-        }
-    }
 
     selectGameboyAnimation = () => {
         if (this.state.gameboyAnimation === false) { // if gameboyAnimation is false, this changes it to true and changes the other animations to false
@@ -147,53 +135,6 @@ class Timer extends Component {
         }, 1000)
     }
 
-    startTimer = () => {
-
-        if (this.state.minutes === 0 && this.state.minutes2 === 0 && this.state.seconds === 0 && this.state.seconds2 === 0) {
-            alert('Please select a time');
-            return;
-        }
-
-        let interval = setInterval(() => {
-            if (this.state.minutes !== 0 && this.state.minutes2 !== 0 && this.state.seconds === 0 && this.state.seconds2 !== 0) {
-                this.setState({ running: true, seconds2: this.state.seconds2 - 1 })
-            } else if (this.state.minutes !== 0 && this.state.minutes2 !== 0 && this.state.seconds === 0 && this.state.seconds2 === 0) {
-                this.setState({ running: true, minutes2: this.state.minutes2 - 1, seconds: 5, seconds2: 9 })
-            } else if (this.state.minutes !== 0 && this.state.minutes2 !== 0 && this.state.seconds !== 0 && this.state.seconds2 !== 0) {
-                this.setState({ running: true, seconds2: this.state.seconds2 - 1 })
-            } else if (this.state.minutes !== 0 && this.state.minutes2 !== 0 && this.state.seconds !== 0 && this.state.seconds2 === 0) {
-                this.setState({ running: true, seconds: this.state.seconds - 1, seconds2: 9 })
-            } else if (this.state.minutes !== 0 && this.state.minutes2 === 0 && this.state.seconds !== 0 && this.state.seconds2 !== 0) {
-                this.setState({ running: true, seconds2: this.state.seconds2 - 1 })
-            } else if (this.state.minutes !== 0 && this.state.minutes2 === 0 && this.state.seconds !== 0 && this.state.seconds2 === 0) {
-                this.setState({ running: true, seconds: this.state.seconds - 1, seconds2: 9 })
-            } else if (this.state.minutes !== 0 && this.state.minutes2 === 0 && this.state.seconds === 0 && this.state.seconds2 !== 0) {
-                this.setState({ running: true, seconds2: this.state.seconds2 - 1 })
-            } else if (this.state.minutes !== 0 && this.state.minutes2 === 0 && this.state.seconds === 0 && this.state.seconds2 === 0) {
-                this.setState({ running: true, minutes: this.state.minutes - 1, minutes2: 9, seconds: 5, seconds2: 9 })
-            } else if (this.state.minutes === 0 && this.state.minutes2 !== 0 && this.state.seconds !== 0 && this.state.seconds2 !== 0) {
-                this.setState({ running: true, seconds2: this.state.seconds2 - 1 })
-            } else if (this.state.minutes === 0 && this.state.minutes2 !== 0 && this.state.seconds !== 0 && this.state.seconds2 === 0) {
-                this.setState({ running: true, seconds: this.state.seconds - 1, seconds2: 9 })
-            } else if (this.state.minutes === 0 && this.state.minutes2 !== 0 && this.state.seconds === 0 && this.state.seconds2 !== 0) {
-                this.setState({ running: true, seconds2: this.state.seconds2 - 1 })
-            } else if (this.state.minutes === 0 && this.state.minutes2 !== 0 && this.state.seconds === 0 && this.state.seconds2 === 0) {
-                this.setState({ running: true, minutes2: this.state.minutes2 - 1, seconds: 5, seconds2: 9 })
-            } else if (this.state.minutes === 0 && this.state.minutes2 === 0 && this.state.seconds !== 0 && this.state.seconds2 !== 0) {
-                this.setState({ running: true, seconds2: this.state.seconds2 - 1 })
-            } else if (this.state.minutes === 0 && this.state.minutes2 === 0 && this.state.seconds !== 0 && this.state.seconds2 === 0) {
-                this.setState({ running: true, seconds: this.state.seconds - 1, seconds2: 9 })
-            } else if (this.state.minutes === 0 && this.state.minutes2 === 0 && this.state.seconds === 0 && this.state.seconds2 !== 0) {
-                this.setState({ running: true, seconds2: this.state.seconds2 - 1 })
-            } else {
-                alert('All Done!')
-                clearInterval(interval)
-                window.location.reload(true);
-            }
-        }, 1000)
-
-    }
-
     render() {
         if (this.state.running === false) {
             return (
@@ -202,23 +143,10 @@ class Timer extends Component {
                         <img className='logo' src={logo}></img>
                     </div>
                     <div className='timer-content'>
-                        {/* <div className='inc-buttons'>
-                            <button className='myButton'onClick={this.incrementMinutes}>+</button>
-                            <button className='myButton'onClick={this.incrementMinutes2}>+</button>
-                            <button className='myButton'onClick={this.incrementSeconds}>+</button>
-                            <button className='myButton'onClick={this.incrementSeconds2}>+</button>
-                        </div>
-                        <div className='timer-settings'>
-                            <h1>{this.state.minutes} {this.state.minutes2} : {this.state.seconds} {this.state.seconds2}</h1>
-                        </div>
-                        <div className='dec-buttons'>
-                            <button className='myButton'onClick={this.decrementMinutes}>-</button>
-                            <button className='myButton'onClick={this.decrementMinutes2}>-</button>
-                            <button className='myButton'onClick={this.decrementSeconds}>-</button>
-                            <button className='myButton'onClick={this.decrementSeconds2}>-</button>
-                        </div> */}
-                        <input className='field' placeholder={this.state.minutes} value={this.state.minutes} onChange={this.handleMinutes} />
-                        <input className='field' placeholder={this.state.seconds} value={this.state.seconds} onChange={this.handleSeconds} />
+            
+                            <input className='field' placeholder={this.state.minutes} value={this.state.minutes} onChange={this.handleMinutes} />
+                            <input className='field' placeholder={this.state.seconds} value={this.state.seconds} onChange={this.handleSeconds} />
+                        
 
                         <div className='animation-selection'>
                             {/* {this.state.gameboyAnimation === true ?
@@ -273,9 +201,7 @@ class Timer extends Component {
             return (
                 <CountDown
                     minutes={this.state.minutes}
-                    // minutes2={this.state.minutes2} 
                     seconds={this.state.seconds}
-                    // seconds2={this.state.seconds2}
                     gameboyAnimation={this.state.gameboyAnimation}
                     skeletonAnimation={this.state.skeletonAnimation}
                     cavemanAnimation={this.state.cavemanAnimation}
@@ -286,4 +212,4 @@ class Timer extends Component {
     }
 }
 
-export default Timer;
+export default AlternateTimer;

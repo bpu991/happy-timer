@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import gameboy from '../media/gameboy.mp4';
 import skeleton from '../media/skeleton.mp4';
 import caveman from '../media/caveman.mp4';
@@ -61,7 +60,7 @@ const CountDown = (props) => {
                             <div className='video-container'>
                                 <video autoPlay muted pause src={caveman} type="video/mp4"></video>
                             </div>
-                            <audio className="audio-element" loop>
+                        <audio className="audio-element" loop playsinline>
                                 <source src={cavemanAlert} type='audio/wav'></source>
                             </audio>
                             <div className='content'>
@@ -77,12 +76,13 @@ const CountDown = (props) => {
                         <div className='video-container'>
                             <video autoPlay muted loop src={caveman} type="video/mp4"></video>
                         </div>
-                        <audio className="audio-element" loop>
+                        <audio className="audio-element" loop playsinline>
                             <source src={cavemanAlert} type='audio/wav'></source>
                         </audio>
                         <div className='content'>
                             <div className='content-2' onClick={handleClick}>
-                                <h2 >{props.minutes} {props.minutes2} : {props.seconds} {props.seconds2}</h2>
+                                {/* <h2 >{props.minutes} {props.minutes2} : {props.seconds} {props.seconds2}</h2> */}
+                                <h2 >{props.minutes} {props.minutes2} : {props.seconds > 10 ? props.seconds : `0 ${props.seconds}`}</h2>
                             </div>
                         </div>
                     </section>
@@ -97,7 +97,7 @@ const CountDown = (props) => {
                         <div className='video-container'>
                             <video autoPlay muted pause src={knight} type="video/mp4"></video>
                         </div>
-                        <audio className="audio-element" loop>
+                        <audio className="audio-element" loop playsinline>
                             <source src={knightAlert} type='audio/wav'></source>
                         </audio>
                         <div className='content'>

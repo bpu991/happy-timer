@@ -172,8 +172,8 @@ class Timer extends Component {
             } else if (this.state.minutes === 0 && this.state.minutes2 === 0 && this.state.seconds === 0 && this.state.seconds2 !== 0) {
                 this.setState({ running: true, seconds2: this.state.seconds2 - 1 })
             } else {
-                this.playAudio() 
-                clearInterval(interval)
+                this.playAudio();
+                clearInterval(interval);
             }
         }, 1000)
 
