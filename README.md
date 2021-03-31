@@ -1,6 +1,6 @@
 # **Happy Timer**
 ---
-###### Welcome to Happy Timer! Happy Timer is a simple count down application designed to deliver a unique user experience. Built entirely with React.js and CSS3, users are able to select a time and choose from one of three character animations. When the start button is clicked, the timer will begin its countdown and the selected animation will run alongside the clock. Check it out here -> [Live link](https://happy-timer.herokuapp.com/)
+###### Welcome to [Happy Timer](https://happy-timer.herokuapp.com/)! Happy Timer is a simple count down application designed to deliver a unique user experience. Built entirely with React.js and CSS3, users are able to select a time and choose from one of three character animations. When the start button is clicked, the timer will begin its countdown and the selected animation will run alongside the clock.
 ![Happy Timer Demo](./src/media/demo.gif)
 
 ### Table of Contents
@@ -24,7 +24,7 @@
     - ###### Since Happy Timer is a front-end project, I built the entire app with React in order to give the user a unique and fun user experience.
     - ###### I utilized class based components for the main timer functionality. Functional components are great,  but I wanted to gain familiarity with class based components in case I was ever exposed to older code bases.
 - ##### CSS3
-    - ###### Raw CSS was utilized to style the difference components - no styling libraries or CSS frameworks were used in this project. This allowed me to have free reign over the user interface and let me completely customize the project to how I envisioned.
+    - ###### Raw CSS was utilized to style the different components - no styling libraries or CSS frameworks were used in this project. This allowed me to have free reign over the user interface and let me customize the project to how I envisioned.
 - ##### Adobe Creative Suite
     - ###### Adobe After Effects was used to animate the character models and the logo was designed in Adobe Illustrator.
 
@@ -45,7 +45,7 @@ this.state = {
         }
 ```
 #### Minutes and Seconds
-###### *minutes* and *minutes2* were created in order to allow the user to select a time by selecting the 10s and singles. For example, incrementing *minutes* would increase the timer by 10 minutes where as incrementing *minutes2* would increment the timer by 1 minute. This logic also applies to *seconds* and *seconds2*. 
+###### *minutes* and *minutes2* were created in order to allow the user to select a time by selecting the 10s and singles. For example, incrementing *minutes* would increase the timer by 10 minutes whereas incrementing *minutes2* would increment the timer by 1 minute. This logic also applies to *seconds* and *seconds2*. 
 
 ``` JavaScript
     incrementMinutes = () => {
@@ -107,7 +107,7 @@ this.setState({running: true})
 ```
 
 #### Animation Select
-###### *skeletonAnimation*, *cavemanAnimation* and *knightAnimation* are all used to determine which animation the user has selected. If the user clicks on one of the static character images, the value of that respective state would become true. Additionally, if the user makes a selection but changes their mind and decides they want to select another one, the selectAnimation() methods sets all of the values to false with the exception of the one chosen.
+###### *skeletonAnimation*, *cavemanAnimation* and *knightAnimation* are all used to determine which animation the user has selected. If the user clicks on one of the static character images, the value of the respective state would become true. Additionally, if the user makes a selection but changes their mind and decides they want to select another one, the selectAnimation() methods sets all of the values to false with the exception of the one chosen.
 
 ``` JavaScript
 selectSkeletonAnimation = () => {
@@ -162,7 +162,7 @@ let interval = setInterval(() => {
 ```
 ###### The 15 different conditionals help determine which state (minutes, minutes2, seconds, seconds2) needs to be decremented every second. When none of those conditionals are met, or when the countdown reaches 0 in other words, the timer audio is played and the interval is cleared. As mentioned above, the main downside of this approach is that the logic behind the countdown is extremely long and quite hard to follow. In order to combat this, I designed another startTimer() method that utilizes a different approach.
 
-###### The second approach offers a much simpler startTimer() method, but at the same time, subtracts a bit from the user experience. Instead of using buttons to increment/decrement the timer, I decided to use input fields to let the user manually input their desired time. When the start button is clicked, the new startTimer() method is called which looks like this:
+###### The second approach offers a much simpler startTimer() method, but at the same time, takes a bit away from the user experience. Instead of using buttons to increment/decrement the timer, I decided to use input fields to let the user manually input their desired time. When the start button is clicked, the new startTimer() method is called which looks like this:
 
 ```JavaScript
 let interval = setInterval(() => {
