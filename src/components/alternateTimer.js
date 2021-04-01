@@ -9,6 +9,13 @@ import knightGif from '../media/knight.gif';
 import skeletonGif from '../media/skeleton.gif';
 import icon4 from '../media/knight-icon.png';
 
+
+// This component is for the alternate timer function that is talked about on the
+// README.md. It features a different startTimer function and a slightly different
+// user interface
+
+// This component is not the one that is deployed onto the live link
+
 class AlternateTimer extends Component {
     constructor() {
         super();
@@ -108,7 +115,7 @@ class AlternateTimer extends Component {
         }
     }
 
-    handleTimer = () => {
+    startTimer = () => {
         let interval = setInterval(() => {
             if (this.state.minutes !== 0 && this.state.seconds !== 0) {
                 this.setState({ running: true, seconds: this.state.seconds - 1 })
@@ -177,7 +184,7 @@ class AlternateTimer extends Component {
                         </div>
                     </div>
                     <div className='start-button'>
-                        <button className='button-start' onClick={this.handleTimer}>Start Timer</button>
+                        <button className='button-start' onClick={this.startTimer}>Start Timer</button>
                     </div>
                     <div className='footer'>
 

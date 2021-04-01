@@ -24,7 +24,7 @@ const CountDown = (props) => {
                             <div className='video-container'>
                                 <video autoPlay muted pause src={skeleton} type="video/mp4"></video>
                             </div>
-                            <audio className="audio-element" loop>
+                        <audio className="audio-element" loop muted={false}>
                                 <source src={skeletonAlert} type='audio/wav'></source>
                             </audio>
                             <div className='content'>
@@ -40,7 +40,7 @@ const CountDown = (props) => {
                         <div className='video-container'>
                             <video autoPlay muted loop src={skeleton} type="video/mp4"></video>
                         </div>
-                        <audio className="audio-element" loop>
+                        <audio className="audio-element" loop muted={false}>
                             <source src={skeletonAlert}  type='audio/wav'></source>
                         </audio>
                         <div className='content'>
@@ -60,7 +60,7 @@ const CountDown = (props) => {
                             <div className='video-container'>
                                 <video autoPlay muted pause src={caveman} type="video/mp4"></video>
                             </div>
-                        <audio className="audio-element" loop playsinline>
+                        <audio className="audio-element" loop muted={false} >
                                 <source src={cavemanAlert} type='audio/wav'></source>
                             </audio>
                             <div className='content'>
@@ -76,7 +76,7 @@ const CountDown = (props) => {
                         <div className='video-container'>
                             <video autoPlay muted loop src={caveman} type="video/mp4"></video>
                         </div>
-                        <audio className="audio-element" loop playsinline>
+                        <audio className="audio-element" loop muted={false}>
                             <source src={cavemanAlert} type='audio/wav'></source>
                         </audio>
                         <div className='content'>
@@ -97,7 +97,7 @@ const CountDown = (props) => {
                         <div className='video-container'>
                             <video autoPlay muted pause src={knight} type="video/mp4"></video>
                         </div>
-                        <audio className="audio-element" loop playsinline>
+                        <audio className="audio-element" loop muted={false}>
                             <source src={knightAlert} type='audio/wav'></source>
                         </audio>
                         <div className='content'>
@@ -113,7 +113,7 @@ const CountDown = (props) => {
                         <div className='video-container'>
                             <video autoPlay muted loop src={knight} type="video/mp4"></video>
                         </div>
-                        <audio className="audio-element" loop>
+                        <audio className="audio-element" loop muted={false}>
                             <source src={knightAlert} type='audio/wav'></source>
                         </audio>
                         <div className='content'>

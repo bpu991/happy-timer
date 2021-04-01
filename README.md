@@ -1,6 +1,8 @@
 # **Happy Timer**
 ---
 ###### Welcome to [Happy Timer](https://happy-timer.herokuapp.com/)! Happy Timer is a simple count down application designed to deliver a unique user experience. Built entirely with React.js and CSS3, users are able to select a time and choose from one of three character animations. When the start button is clicked, the timer will begin its countdown and the selected animation will run alongside the clock.
+
+###### Important Note: 
 ![Happy Timer Demo](./src/media/demo.gif)
 
 ### Table of Contents
