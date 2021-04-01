@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import CountDown from './CountDown';
-import '../css/timer.css';
 import logo from '../media/logo2.png';
 import copyright from '../media/copyright.png'
 import skeletonIcon from '../media/skeleton-icon.png';
@@ -9,7 +8,7 @@ import knightIcon from '../media/knight-icon.png';
 import cavemanGif from '../media/caveman.gif';
 import knightGif from '../media/knight.gif';
 import skeletonGif from '../media/skeleton.gif';
-
+import '../css/timer.css';
 
 class Timer extends Component {
     constructor() {

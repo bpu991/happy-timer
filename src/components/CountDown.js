@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import gameboy from '../media/gameboy.mp4';
+import React from 'react';
 import skeleton from '../media/skeleton.mp4';
 import caveman from '../media/caveman.mp4';
 import knight from '../media/knight.mp4';

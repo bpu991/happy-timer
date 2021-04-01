@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import CountDown from './CountDown';
-import '../css/alternate-timer.css';
 import logo from '../media/logo2.png';
 import icon2 from '../media/skeleton-icon.png';
 import icon3 from '../media/caveman-icon.png';
@@ -8,7 +7,7 @@ import cavemanGif from '../media/caveman.gif';
 import knightGif from '../media/knight.gif';
 import skeletonGif from '../media/skeleton.gif';
 import icon4 from '../media/knight-icon.png';
-
+import '../css/alternate-timer.css';
 
 // This component is for the alternate timer function that is talked about on the
 // README.md. It features a different startTimer function and a slightly different
