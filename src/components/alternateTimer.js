@@ -37,8 +37,6 @@ class AlternateTimer extends Component {
         } else {
              this.setState({ minutes: e.target.value })
         }
-       
-        console.log(this.state.minutes)
     }
 
     handleSeconds = (e) => {
