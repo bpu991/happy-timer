@@ -47,7 +47,7 @@ class AlternateTimer extends Component {
         }
     }
 
-    // Handles the increment/decrement logic for seconds
+    // Handles the increment / decrement logic for seconds
     incrementSeconds = (e) => {
         if (e.target.value > 60) {
             alert('enter valid number')
